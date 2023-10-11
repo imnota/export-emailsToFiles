@@ -7,6 +7,7 @@ SYNTAX
     [[-replaceInvalidCharacterWith] <String>] [[-duplicateFileSeparator] <String>] [<CommonParameters>]
 
 PARAMETERS  
+
     -userPrincipalName <String>
         The userPrincipalName of the mailbox to extract from
 
