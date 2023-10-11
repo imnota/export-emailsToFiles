@@ -129,7 +129,7 @@ function invoke-saveEmails {
     foreach ($folder in $folders) {
         Write-Verbose "Searching Folder: $($result.DisplayName)"
         $newFolderName=$filefolder+"\"+ ($folder.DisplayName -replace $illegalFileCharacters, $replaceInvalidCharacterWith)
-        output-emails -folderId $folder.id -userId $userId -fileFolder $newFolderName
+        invoke-saveEmails -folderId $folder.id -userId $userId -fileFolder $newFolderName
     }
 
 }
