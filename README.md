@@ -1,12 +1,12 @@
 # extract-emailsToFiles
-DESCRIPTION
+DESCRIPTION  
     Saves all emails from a named folder and its subfolders in a specified users account to the filesystem in the same folder structure
 
-SYNTAX
-    .\export-emailsToFiles.ps1 [-userPrincipalName] <String> [-emailfolderName] <String> [-fileFolderRoot] <String>
+SYNTAX  
+.\export-emailsToFiles.ps1 [-userPrincipalName] <String> [-emailfolderName] <String> [-fileFolderRoot] <String>
     [[-replaceInvalidCharacterWith] <String>] [[-duplicateFileSeparator] <String>] [<CommonParameters>]
 
-PARAMETERS
+PARAMETERS  
     -userPrincipalName <String>
         The userPrincipalName of the mailbox to extract from
 
