@@ -28,4 +28,4 @@ PARAMETERS
 
     PS C:\>.\Export-emailsToFiles.ps1 -userPrincipalName joe.bloggs@example.domain.com -emailFolderName "Inbox" -fileFolderRoot C:\EmailExtract
 
-    Exports all emails in the Inbox folder and any subfolders to the folder "C:\EmailExtract"
+    Exports all emails in the Inbox folder and any subfolders from the mailbox joe.bloggs@example.domain.com to the folder "C:\EmailExtract"
