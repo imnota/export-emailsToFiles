@@ -112,11 +112,11 @@ function invoke-saveEmails {
     $folders=Get-MgUserMailFolderChildFolder -MailFolderId $folderid -UserId $userId -All:$true
 
     foreach ($email in $emails) {
-        $filename=($email.SentDateTime.Tostring("yyyyMMdd_HHmmss") + " - " + $email.subject) -replace $illegalFileCharacters, $replaceInvalidCharacterWith
+        $filename=(($email.SentDateTime.Tostring("yyyyMMdd_HHmmss") + " - " + $email.subject) -replace $illegalFileCharacters, $replaceInvalidCharacterWith).trim()
         [int]$count=0
         Write-Verbose "$($fileFolder)\$($filename)"
         while (Test-Path -literalpath "$($fileFolder)\$($filename).eml") {
-            $filename=$filename -replace "$($duplicateFileSeparator)$($count)$", ""
+            $filename=($filename -replace "$($duplicateFileSeparator)$($count)$", "").trim()
             $count+=1
             $filename+="$($duplicateFileSeparator)$($count)"
         }
@@ -128,7 +128,7 @@ function invoke-saveEmails {
     }
     foreach ($folder in $folders) {
         Write-Verbose "Searching Folder: $($result.DisplayName)"
-        $newFolderName=$filefolder+"\"+ ($folder.DisplayName -replace $illegalFileCharacters, $replaceInvalidCharacterWith)
+        $newFolderName=$filefolder+"\"+ ($folder.DisplayName -replace $illegalFileCharacters, $replaceInvalidCharacterWith).trim()
         invoke-saveEmails -folderId $folder.id -userId $userId -fileFolder $newFolderName
     }
 
